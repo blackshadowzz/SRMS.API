@@ -13,7 +13,10 @@ builder.Services.AddControllers()
     (
     option => option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles
     );
-builder.Services.AddClass();
+builder.Services
+    .AddClass()
+    .AddLevel()
+    .AddRegistration();
 builder.Services.AddAutoMapper(typeof(MappingConfigure));
 builder.Services.AddDbContext<AppDbContext>(option =>
 {

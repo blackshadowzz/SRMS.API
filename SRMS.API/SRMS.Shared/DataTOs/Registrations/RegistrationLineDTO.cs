@@ -1,26 +1,23 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using SRMS.Shared.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Timers;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SRMS.Shared.Models
+namespace SRMS.Shared.DataTOs.Registrations
 {
-    public class RegistrationLine
+    public class RegistrationLineDTO
     {
-        [Key]
         public int RegistrationLineId { get; set; }
         public int? RegistrationId { get; set; }
         public int? SubjectId { get; set; }
         public int? LevelId { get; set; }
-        [Column(TypeName ="varchar(50)")]
         public string? Durations { get; set; }
-        [Column(TypeName = "varchar(10)")]
-
         public string? StartHour { get; set; }
-        [Column(TypeName = "varchar(10)")]
-
         public string? EndHour { get; set; }
-        public decimal? PricPer { get; set; }=Decimal.Zero;
+        public decimal? PricPer { get; set; }
         [ForeignKey(nameof(RegistrationId))]
         public Registration? Registration { get; set; }
     }

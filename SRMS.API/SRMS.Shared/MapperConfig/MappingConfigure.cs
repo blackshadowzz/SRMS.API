@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using SRMS.Shared.DataTOs;
+using SRMS.Shared.DataTOs.Registrations;
 using SRMS.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SRMS.Shared.MapperConfig
 {
@@ -16,6 +12,20 @@ namespace SRMS.Shared.MapperConfig
             CreateMap<Class1,Class1DTO>().ReverseMap();
             CreateMap<Class1,Class1CreateDTO>().ReverseMap();
             CreateMap<Class1,Class1UpdateDTO>().ReverseMap();
+
+            CreateMap<Level,LevelDTO>().ReverseMap();
+            CreateMap<Level,LevelCreateDTO>().ReverseMap();
+            CreateMap<Level,LevelUpdateDTO>().ReverseMap();
+
+            CreateMap<Registration,RegistrationDTO>().ReverseMap();
+            CreateMap<Registration,RegistrationCreateDTO>().ReverseMap();
+            CreateMap<Registration,RegistrationUpdateDTO>().ReverseMap();
+
+            CreateMap<RegistrationLine,RegistrationLineDTO>().ReverseMap();
+            CreateMap<RegistrationLine,RegistrationLineCreateDTO>().ReverseMap();
+            CreateMap<RegistrationLine,RegistrationLineUpdateDTO>().ReverseMap();
+      
+
         }
     }
 }

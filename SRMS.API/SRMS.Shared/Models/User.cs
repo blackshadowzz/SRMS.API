@@ -20,6 +20,8 @@ namespace SRMS.Shared.Models
         [Column(TypeName = "varchar(30)")]
         public string? UserType { get; set; }
         [Column(TypeName = "varchar(50)")]
+        public string? Image { get; set; }
+        [Column(TypeName = "text")]
         public string Username { get; set; }=string.Empty;
         [Column(TypeName = "varchar(max)")]
         public string Password { get; set; } =string.Empty;
