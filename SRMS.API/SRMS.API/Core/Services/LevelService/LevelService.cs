@@ -27,9 +27,13 @@ namespace SRMS.API.Core.Services.LevelService
             }
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var result= await context.Levels.AsNoTracking().FirstOrDefaultAsync(x=>x.LevelId==id);
+            context.Levels.Remove(result);
+            await SaveAsync();
+            return true;
+
         }
 
         public async Task<IEnumerable<Level>> GetAllAsync(Expression<Func<Level, bool>>? condition = null)
@@ -43,9 +47,9 @@ namespace SRMS.API.Core.Services.LevelService
 
         }
 
-        public Task<Level> GetByIdAsync(int id)
+        public async Task<Level?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await context.Levels.AsNoTracking().FirstOrDefaultAsync(x => x.LevelId == id);
         }
 
         public async Task SaveAsync()
@@ -53,9 +57,11 @@ namespace SRMS.API.Core.Services.LevelService
             await context.SaveChangesAsync();
         }
 
-        public Task<bool> UpdateAsync(Level level)
+        public async Task<bool> UpdateAsync(Level level)
         {
-            throw new NotImplementedException();
+            context.Levels.Update(level);
+            await SaveAsync();
+            return true;
         }
     }
 }

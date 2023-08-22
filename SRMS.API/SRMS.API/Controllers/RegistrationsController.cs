@@ -128,7 +128,7 @@ namespace SRMS.API.Controllers
         [ProducesResponseType(500)]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<ResponeService<bool>>> CreateLevel([FromBody] RegistrationCreateDTO registration)
+        public async Task<ActionResult<ResponeService<bool>>> CreateRegistration([FromBody] RegistrationCreateDTO registration)
         {
             logger.LogInformation("Registration is creating...!");
             try
@@ -141,6 +141,40 @@ namespace SRMS.API.Controllers
                     return BadRequest(new ResponeService<bool>()
                     {
                         Message = "Cannot create registration",
+                        Success = false,
+                        Data = false
+                    });
+
+                return Ok(new ResponeService<bool>()
+                {
+                    Message = "Created Successfully",
+                    Success = true,
+                    Data = true
+                });
+            }
+            catch (Exception ex)
+            {
+                logger.LogInformation(ex.Message);
+                return Problem(ex.InnerException.Message, statusCode: 500);
+            }
+        }
+        [HttpPost("Line")]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<ResponeService<bool>>> CreateLine(RegistrationLineCreateDTO line)
+        {
+            logger.LogInformation("RegistrationLine is creating...!");
+            try
+            {
+
+                var result = mapper.Map<RegistrationLine>(line);
+                var created = await service.CreateLineAsync(result);
+
+                if (created == false)
+                    return BadRequest(new ResponeService<bool>()
+                    {
+                        Message = "Cannot create registrationLine",
                         Success = false,
                         Data = false
                     });

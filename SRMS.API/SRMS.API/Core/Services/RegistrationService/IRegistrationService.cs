@@ -9,6 +9,7 @@ namespace SRMS.API.Core.Services.RegistrationService
         Task<Registration?> GetByIdAsync(int id);
         Task<RegistrationLine?> GetLineByIdAsync(int id);
         Task<bool> CreateAsync(Registration registration);
+        Task<bool> CreateLineAsync(RegistrationLine line);
         Task<bool> UpdateAsync(Registration registration);
         Task<bool> UpdateLineAsync(RegistrationLine registrationLine);
         Task<bool> DeleteAsync(int id);

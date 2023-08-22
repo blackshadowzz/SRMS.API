@@ -29,6 +29,13 @@ namespace SRMS.API.Core.Services.RegistrationService
             }
         }
 
+        public async Task<bool> CreateLineAsync(RegistrationLine line)
+        {
+            context.RegistrationLines.Add(line);
+            await SaveAsync();
+            return true;
+        }
+
         public Task<bool> DeleteAsync(int id)
         {
             throw new NotImplementedException();
