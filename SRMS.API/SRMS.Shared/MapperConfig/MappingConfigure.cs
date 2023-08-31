@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SRMS.Shared.DataTOs;
 using SRMS.Shared.DataTOs.Registrations;
+using SRMS.Shared.DataTOs.Users;
 using SRMS.Shared.Models;
 
 namespace SRMS.Shared.MapperConfig
@@ -24,8 +25,12 @@ namespace SRMS.Shared.MapperConfig
             CreateMap<RegistrationLine,RegistrationLineDTO>().ReverseMap();
             CreateMap<RegistrationLine,RegistrationLineCreateDTO>().ReverseMap();
             CreateMap<RegistrationLine,RegistrationLineUpdateDTO>().ReverseMap();
-      
 
+            //User Mapping
+            CreateMap<User,UserDTO>().ReverseMap();
+            CreateMap<User,UserCreateDTO>().ReverseMap();
+            CreateMap<User,UserUpdate>().ReverseMap();
+            //CreateMap<User,UserLoginDTO>().ReverseMap();
         }
     }
 }

@@ -19,5 +19,7 @@ namespace SRMS.API.Data.AppContext
         public DbSet<SubjectType> SubjectTypes { get; set; }
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<RegistrationLine> RegistrationLines { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }

@@ -2,6 +2,7 @@
 using SRMS.API.Core.Services.Class1Service;
 using SRMS.API.Core.Services.LevelService;
 using SRMS.API.Core.Services.RegistrationService;
+using SRMS.API.Core.Services.UserServices;
 
 namespace SRMS.API.Core.Extensions
 {
@@ -21,6 +22,11 @@ namespace SRMS.API.Core.Extensions
         public static IServiceCollection AddRegistration(this IServiceCollection services)
         {
             services.TryAddScoped<IRegistrationService, RegistrationService>();
+            return services;
+        }
+        public static IServiceCollection AddUser(this IServiceCollection services)
+        {
+            services.TryAddScoped<IUserService, UserService>();
             return services;
         }
     }

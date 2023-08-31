@@ -16,7 +16,8 @@ builder.Services.AddControllers()
 builder.Services
     .AddClass()
     .AddLevel()
-    .AddRegistration();
+    .AddRegistration()
+    .AddUser();
 builder.Services.AddAutoMapper(typeof(MappingConfigure));
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
