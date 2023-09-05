@@ -65,7 +65,7 @@ namespace SRMS.API.Controllers
                 return Problem(ex.Message, statusCode: 500);
             }
         }
-        [HttpPost]
+        [HttpPost("Create")]
         [ProducesResponseType(500)]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
